@@ -13,7 +13,7 @@ def app():
     # Uses st.cache to only rerun when the query changes or after 10 min.
     # @st.cache(ttl=600)
 
-    st_autorefresh(interval=1000, limit=1000000, key="updatetable")
+    st_autorefresh(interval=2000, limit=1000, key="updatetable")
 
     def run_query(query):
         rows = conn.execute(query, headers=1)
