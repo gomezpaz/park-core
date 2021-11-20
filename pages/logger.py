@@ -5,18 +5,10 @@ import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
-from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
-
-from .motiontracker import VideoProcessor
 
 
 def app(self):
     st.header("Logger")
-
-    # Set up RTC config for https protocol
-    RTC_CONFIGURATION = RTCConfiguration(
-        {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-    )
 
     # Authorize the API
     scope = [
@@ -33,7 +25,6 @@ def app(self):
     except:
         pass
 
-    option = 0
     name = st.selectbox('Parking Spot Selection',
                         self.parking_spaces_master['name'])
 
@@ -52,18 +43,6 @@ def app(self):
     timestamp = GetValue(self, name, 'timestamp')
     timestamp_label = "###### _Updated on " + timestamp + "_"
     st.markdown(timestamp_label)
-
-    # Computer Vision
-    st.subheader('Computer Vision')
-
-    webrtc_ctx = webrtc_streamer(
-        key="motion-tracker",
-        mode=WebRtcMode.SENDRECV,
-        rtc_configuration=RTC_CONFIGURATION,
-        video_processor_factory=VideoProcessor,
-        media_stream_constraints={"video": True, "audio": False},
-        async_processing=True,
-    )
 
 
 def BtnUpdateAvailability(sheet, name, availability):

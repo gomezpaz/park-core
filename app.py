@@ -16,7 +16,7 @@ app = MultiPage()
 # Title of the main page
 st.title("Park Corps")
 
-app.add_page("Raw Database", database.app)
+# app.add_page("Raw Database", database.app)
 app.add_page("Map", map.app)
 app.add_page("Logger", logger.app)
 
