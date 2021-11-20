@@ -9,7 +9,7 @@ import numpy as np
 
 
 from pages.multipage import MultiPage
-from pages import database, map
+from pages import database, map, logger
 
 # Create an instance of the app
 app = MultiPage()
@@ -19,11 +19,12 @@ st.title("Park Corps")
 
 app.add_page("Raw Database", database.app)
 app.add_page("Map", map.app)
-# app.add_page("Machine Learning", machine_learning.app)
-# app.add_page("Data Analysis",data_visualize.app)
-# app.add_page("Y-Parameter Optimization",redundant.app)
+app.add_page("Logger", logger.app)
 
-app.run()
+try:
+    app.run()
+except:
+    pass
 
 
 # # Set up RTC config for https protocol
