@@ -7,7 +7,6 @@ import hydralit as hy
 import pandas as pd
 import numpy as np
 
-
 from pages.multipage import MultiPage
 from pages import database, map, logger
 
@@ -25,39 +24,3 @@ try:
     app.run()
 except:
     pass
-
-
-# # Set up RTC config for https protocol
-# RTC_CONFIGURATION = RTCConfiguration(
-#     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-# )
-
-# # Set title
-# app = hy.HydraApp(title='Park Corps')
-
-
-# @app.addapp(title='Home')
-# def Home():
-#     st.header("Park Corps")
-
-
-# @app.addapp(title='Database')
-# def Models():
-#     st.header("Database")
-
-
-# @app.addapp(title='Map')
-# def Demo():
-#     st.header("Map")
-
-#     # webrtc_ctx = webrtc_streamer(
-#     #     key="motion-tracker",
-#     #     mode=WebRtcMode.SENDRECV,
-#     #     rtc_configuration=RTC_CONFIGURATION,
-#     #     video_processor_factory=VideoProcessor,
-#     #     media_stream_constraints={"video": True, "audio": False},
-#     #     async_processing=True,
-#     # )
-
-
-# app.run()

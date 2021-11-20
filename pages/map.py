@@ -11,7 +11,7 @@ def app(self):
 
     df = pd.DataFrame(
         location_coords,
-        columns=['lat', 'lon', 'available', 'not_available', 'id', 'name'])
+        columns=['lat', 'lon', 'available', 'not_available', 'id', 'name', 'rules'])
 
     deck = pdk.Deck(
         map_style='mapbox://styles/mapbox/light-v9',
@@ -51,7 +51,7 @@ def app(self):
                 # get_alignment_baseline='"center"'
             ),
         ],
-        tooltip={"html": "{name}<br/>ID: {id}"}
+        tooltip={"html": "{name}<br/>ID: {id}<br/>Notes: <br/>{rules}"}
     )
 
     st.pydeck_chart(deck)
@@ -67,6 +67,7 @@ def GetCoordinates(parking_spaces):
         location_coord.append(int(not int(row['available'])))
         location_coord.append(int(row['id']))
         location_coord.append(str(row['name']))
+        location_coord.append(str(row['rules']))
         location_coords.append(location_coord)
 
     return location_coords

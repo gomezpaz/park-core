@@ -13,13 +13,10 @@ def app(self):
 
     # Perform SQL query on the Google Sheet.
     # Uses st.cache to only rerun when the query changes or after 10 min.
-    # @st.cache(ttl=600)
-
+    @st.cache(ttl=100)
     # parking_spots_db = sheet.get_all_records()
     # parking_spaces_master = pd.DataFrame.from_dict(parking_spots_db)
-
-    st_autorefresh(interval=5000, limit=1000, key="updatetable")
-
+    # st_autorefresh(interval=5000, limit=1000, key="updatetable")
     def run_query(query):
         rows = conn.execute(query, headers=1)
         return rows
