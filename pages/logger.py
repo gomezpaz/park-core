@@ -4,7 +4,6 @@ from gsheetsdb import connect
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import random
 from datetime import datetime
 
 
